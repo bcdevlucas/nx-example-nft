@@ -1,0 +1,60 @@
+version: '3.8'
+services:
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        project: user-api
+        environment: production
+        port: 3000
+    user: 'node'
+    working_dir: /usr/src/app
+    environment:
+      PORT: 3000
+      NODE_ENV: 'production'
+      DB_TYPE: 'mysql'
+      DB_HOSTNAME: host.docker.internal
+      DB_PORT: 3306
+      DB_DATABASE: 'nft_db'
+      DB_USERNAME: 'nft-db'
+      DB_PASSWORD: 'makeTh!sSometh!ngSecure'
+    volumes:
+      - .:/usr/src/app
+      - /usr/app/node_modules
+    # tty: false
+    # restart: always
+    links:
+      - db
+    depends_on:
+      - db
+    ports:
+      - '3000:3000'
+    expose:
+      - '3306'
+    networks:
+      - example-nft-network
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: makeTh!sSometh!ngSecure
+      MYSQL_USER: nft-db
+      MYSQL_PASSWORD: makeTh!sSometh!ngSecure
+      MYSQL_DATABASE: nft_db
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - db-mysql-data:/var/lib/mysql
+    networks:
+      - example-nft-network
+
+volumes:
+  db-mysql-data:
+  node-cache:
+
+networks:
+  example-nft-network:

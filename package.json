@@ -2,16 +2,28 @@
   "name": "@nx-example-nft/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "serve": "nx run user-api:serve:development",
+    "build": "nx run user-api:build:production"
+  },
   "private": true,
   "dependencies": {
+    "@mercuriusjs/gateway": "^1.2.0",
+    "@nestjs/apollo": "^11.0.6",
     "@nestjs/common": "^9.1.1",
+    "@nestjs/config": "^2.3.2",
     "@nestjs/core": "^9.1.1",
+    "@nestjs/graphql": "^11.0.6",
+    "@nestjs/mercurius": "^11.0.6",
     "@nestjs/platform-express": "^9.1.1",
+    "@nestjs/typeorm": "^9.0.1",
     "axios": "^1.0.0",
+    "joi": "^17.9.2",
+    "mysql2": "^3.3.3",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "typeorm": "^0.3.16"
   },
   "devDependencies": {
     "@nestjs/schematics": "^9.1.0",
