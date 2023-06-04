@@ -1,15 +1,14 @@
 import { Module } from '@nestjs/common';
-
+// import { MercuriusDriver, MercuriusDriverConfig } from '@nestjs/mercurius';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { GraphQLModule } from '@nestjs/graphql';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppResolver } from './app.resolver';
 import { AppService } from './app.service';
-import { GraphQLModule } from '@nestjs/graphql';
-import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-// import { MercuriusDriver, MercuriusDriverConfig } from '@nestjs/mercurius';
+import { AppConfigModule } from '@nft/core-modules/app-config/app-config.module';
+import { AppConfigService } from '@nft/core-modules/app-config/app-config.provider';
 // import { UsersModule } from './users/users.module';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppConfigModule } from './modules/app-config/app-config.module';
-import { AppConfigService } from './modules/app-config/app-config.provider';
 
 @Module({
   imports: [
