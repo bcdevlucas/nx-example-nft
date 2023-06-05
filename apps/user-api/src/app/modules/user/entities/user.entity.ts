@@ -1,10 +1,12 @@
 import { ObjectType, Field } from '@nestjs/graphql';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Nft } from '../../nft/entities/nft.entity';
+import { Transaction } from '../../transaction/entities/transaction.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity()
 @ObjectType()
 export class User {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn()
   @Field(() => String, { description: 'User ID' })
   id: string;
 
@@ -27,4 +29,21 @@ export class User {
   @Column({ nullable: true })
   @Field(() => String, { description: 'Password' })
   password: string;
+
+  @CreateDateColumn()
+  @Field(() => String, { description: 'Created Date' })
+  createdDate: string;
+
+  @UpdateDateColumn()
+  @Field(() => String, { description: 'Updated Date' })
+  updatedDate: string;
+
+  @OneToMany(() => Nft, (nft) => nft.owner)
+  nfts?: Nft[];
+
+  @OneToMany(() => Transaction, (tx) => tx.transferredBy)
+  transactionsOutbound: Transaction[];
+
+  @OneToMany(() => Transaction, (tx) => tx.transferredTo)
+  transactionsInbound: Transaction[];
 }

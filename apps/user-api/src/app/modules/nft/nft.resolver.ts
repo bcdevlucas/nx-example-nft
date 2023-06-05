@@ -13,7 +13,7 @@ export class NftResolver {
     return this.nftService.create(createNftInput);
   }
 
-  @Query(() => [Nft], { name: 'nft' })
+  @Query(() => [Nft], { name: 'nfts' })
   findAll() {
     return this.nftService.findAll();
   }

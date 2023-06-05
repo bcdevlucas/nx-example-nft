@@ -1,30 +1,39 @@
 import { ObjectType, Field } from '@nestjs/graphql';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { User } from '../../user/entities/user.entity';
+import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, ManyToOne } from 'typeorm';
 
 @Entity()
 @ObjectType()
 export class Transaction {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn()
   @Field(() => String, { description: 'Transaction ID' })
   id: string;
-
-  @Column()
-  @Field(() => String, { description: 'Timestamp' })
-  timestamp: string;
 
   @Column()
   @Field(() => String, { description: 'NFT ID (UUID)' })
   nftId: string;
 
-  @Column()
-  @Field(() => String, { description: 'Transferred By (UUID)' })
-  transferredBy: string;
+  @Column({ name: 'transferredBy', unique: false, type: 'varchar' })
+  @ManyToOne(() => User, (user) => user.transactionsOutbound)
+  @Field(() => String, { description: 'Transferred By' })
+  transferredBy: User;
 
-  @Column()
-  @Field(() => String, { description: 'Transferred To (UUID)' })
-  transferredTo: string;
+  @Column({ name: 'transferredTo', unique: false, type: 'varchar' })
+  @ManyToOne(() => User, (user) => user.transactionsInbound)
+  @Field(() => String, { description: 'Transferred To' })
+  transferredTo: User;
 
   @Column()
   @Field(() => String, { description: 'Transaction Status' })
   status: string;
+
+  @CreateDateColumn()
+  @Field(() => String, { description: 'Created Date' })
+  createdDate: string;
+
+  @UpdateDateColumn()
+  @Field(() => String, { description: 'Updated Date' })
+  updatedDate: string;
+
+
 }

@@ -2,26 +2,6 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type User {
-  """User ID"""
-  id: String!
-
-  """First Name"""
-  firstName: String!
-
-  """Last Name"""
-  lastName: String!
-
-  """User Email"""
-  email: String!
-
-  """User Role"""
-  role: String!
-
-  """Password"""
-  password: String!
-}
-
 type Nft {
   """NFT ID"""
   id: String!
@@ -43,32 +23,65 @@ type Nft {
 
   """Mint Date"""
   mintDate: String!
+
+  """Updated Date"""
+  updatedDate: String!
 }
 
 type Transaction {
   """Transaction ID"""
   id: String!
 
-  """Timestamp"""
-  timestamp: String!
-
   """NFT ID (UUID)"""
   nftId: String!
 
-  """Transferred By (UUID)"""
+  """Transferred By"""
   transferredBy: String!
 
-  """Transferred To (UUID)"""
+  """Transferred To"""
   transferredTo: String!
 
   """Transaction Status"""
   status: String!
+
+  """Created Date"""
+  createdDate: String!
+
+  """Updated Date"""
+  updatedDate: String!
+}
+
+type User {
+  """User ID"""
+  id: String!
+
+  """First Name"""
+  firstName: String!
+
+  """Last Name"""
+  lastName: String!
+
+  """User Email"""
+  email: String!
+
+  """User Role"""
+  role: String!
+
+  """Password"""
+  password: String!
+
+  """Created Date"""
+  createdDate: String!
+
+  """Updated Date"""
+  updatedDate: String!
 }
 
 type Query {
   sayHello: String!
   users: [User!]!
   user(id: String!): User!
+  nfts: [Nft!]!
   nft(id: String!): Nft!
   transactions: [Transaction!]!
   transaction(id: String!): Transaction!
@@ -157,9 +170,6 @@ input UpdateNftInput {
 }
 
 input CreateTransactionInput {
-  """Transaction Date"""
-  timestamp: String!
-
   """NFT ID (UUID)"""
   nftId: String!
 
@@ -168,12 +178,12 @@ input CreateTransactionInput {
 
   """Transferred To (UUID)"""
   transferredTo: String!
+
+  """Status"""
+  status: String!
 }
 
 input UpdateTransactionInput {
-  """Transaction Date"""
-  timestamp: String
-
   """NFT ID (UUID)"""
   nftId: String
 
@@ -182,5 +192,8 @@ input UpdateTransactionInput {
 
   """Transferred To (UUID)"""
   transferredTo: String
+
+  """Status"""
+  status: String
   id: String!
 }

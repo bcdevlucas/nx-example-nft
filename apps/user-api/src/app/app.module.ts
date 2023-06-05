@@ -40,6 +40,7 @@ import { TransactionModule } from './modules/transaction/transaction.module';
         password: configService.db('password'),
         ssl: configService.db('ssl'),
         autoLoadEntities: true,
+        dropSchema: true
       }),
       inject: [AppConfigService],
     }),

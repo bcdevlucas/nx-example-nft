@@ -1,12 +1,12 @@
 version: '3.8'
 services:
-  ganache:
-    image: schadokar/eth-ganache:1.0.0
-    build:
-      context: .
-      dockerfile: Dockerfile.ganache
-    ports:
-      - "8545:8545"
+#  ganache:
+#    image: schadokar/eth-ganache:1.0.0
+#    build:
+#      context: .
+#      dockerfile: Dockerfile.ganache
+#    ports:
+#      - "8545:8545"
 #  eth:
 #    image: schadokar/eth-server:1.0.0
 #    build: ./

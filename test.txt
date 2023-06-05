@@ -45,3 +45,58 @@ mutation RemoveUser($id: String!) {
 {
   "id": "46196615-fa20-47a0-a98e-8216a572e92e"
 }
+
+mutation CreateNft($input: CreateNftInput!) {
+  createNft(createNftInput: $input) {
+    id
+  }
+}
+
+{
+  "input": {
+    "name": "My NFT",
+    "blockchainLink": "some-url-value",
+    "description": "NFT description",
+    "imageUrl": "https://example.com/myimage.png",
+    "owner": "lucas",
+    "mintDate": "20230101"
+  }
+}
+
+{
+  nfts {
+    id,
+    name,
+    blockchainLink,
+    description,
+    imageUrl,
+    owner,
+    mintDate
+  }
+}
+
+{
+  transactions {
+    id,
+    nftId,
+    transferredBy,
+    transferredTo
+  }
+}
+
+mutation CreateTransaction($input: CreateTransactionInput!) {
+  createTransaction(createTransactionInput: $input) {
+    id
+  }
+}
+
+{
+  "input": {
+    "timestamp": "20230101",
+    "nftId": "18110ce4-7a1c-4f9f-bf6d-0c489b6b1b01",
+  	"transferredBy": "38524898-6a64-4927-946c-84f40971e5af",
+    "transferredTo": "fc0469fe-6dc8-41f8-9e25-0f9f5cdd87bd",
+    "status": "success"
+  }
+}
+
