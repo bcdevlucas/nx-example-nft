@@ -47,13 +47,14 @@
     "remeda": "^1.19.0",
     "rxjs": "^7.8.0",
     "solc": "^0.8.20",
+    "supertest": "^6.3.3",
     "tslib": "^2.3.0",
     "typeorm": "^0.3.16",
     "web3": "^1.10.0"
   },
   "devDependencies": {
     "@nestjs/schematics": "^9.1.0",
-    "@nestjs/testing": "^9.1.1",
+    "@nestjs/testing": "^9.4.2",
     "@nx/esbuild": "16.3.2",
     "@nx/eslint-plugin": "16.3.2",
     "@nx/jest": "16.3.2",
@@ -71,6 +72,7 @@
     "@types/passport-local": "^1.0.35",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
+    "chance": "^1.1.11",
     "esbuild": "^0.17.17",
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",
