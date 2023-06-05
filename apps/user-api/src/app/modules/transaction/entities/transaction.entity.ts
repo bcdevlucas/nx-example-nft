@@ -1,4 +1,5 @@
 import { ObjectType, Field } from '@nestjs/graphql';
+import { Nft } from '../../nft/entities/nft.entity';
 import { User } from '../../user/entities/user.entity';
 import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, ManyToOne } from 'typeorm';
 
@@ -9,7 +10,8 @@ export class Transaction {
   @Field(() => String, { description: 'Transaction ID' })
   id: string;
 
-  @Column()
+  @Column({ name: 'nftId', unique: false, type: 'varchar' })
+  @ManyToOne(() => Nft, (nft) => nft.id)
   @Field(() => String, { description: 'NFT ID (UUID)' })
   nftId: string;
 
@@ -34,6 +36,4 @@ export class Transaction {
   @UpdateDateColumn()
   @Field(() => String, { description: 'Updated Date' })
   updatedDate: string;
-
-
 }

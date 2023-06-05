@@ -2,6 +2,29 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Transaction {
+  """Transaction ID"""
+  id: String!
+
+  """NFT ID (UUID)"""
+  nftId: String!
+
+  """Transferred By"""
+  transferredBy: String!
+
+  """Transferred To"""
+  transferredTo: String!
+
+  """Transaction Status"""
+  status: String!
+
+  """Created Date"""
+  createdDate: String!
+
+  """Updated Date"""
+  updatedDate: String!
+}
+
 type Nft {
   """NFT ID"""
   id: String!
@@ -23,29 +46,6 @@ type Nft {
 
   """Mint Date"""
   mintDate: String!
-
-  """Updated Date"""
-  updatedDate: String!
-}
-
-type Transaction {
-  """Transaction ID"""
-  id: String!
-
-  """NFT ID (UUID)"""
-  nftId: String!
-
-  """Transferred By"""
-  transferredBy: String!
-
-  """Transferred To"""
-  transferredTo: String!
-
-  """Transaction Status"""
-  status: String!
-
-  """Created Date"""
-  createdDate: String!
 
   """Updated Date"""
   updatedDate: String!

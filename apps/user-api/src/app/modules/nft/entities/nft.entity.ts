@@ -1,6 +1,15 @@
 import { ObjectType, Field } from '@nestjs/graphql';
+import { Transaction } from '@nft/api-modules/transaction/entities/transaction.entity';
 import { User } from '../../user/entities/user.entity';
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+  OneToMany
+} from 'typeorm';
 
 @Entity()
 @ObjectType()
@@ -37,4 +46,7 @@ export class Nft {
   @UpdateDateColumn()
   @Field(() => String, { description: 'Updated Date' })
   updatedDate: string;
+
+  @OneToMany(() => Transaction, (tx) => tx.nftId)
+  transactions: Transaction[];
 }
