@@ -16,14 +16,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nft/user-api-core": ["apps/user-api/src/app/core/index.ts"],
-      "@nft/user-api-core/*": ["apps/user-api/src/app/core/*"],
       "@nft/api-lib": ["libs/api-lib/src/index.ts"],
       "@nft/api-modules/*": ["apps/user-api/src/app/modules/*"],
       "@nft/core-lib": ["libs/core/src/index.ts"],
       "@nft/core-lib/*": ["libs/core/src/lib/*"],
       "@nft/core-modules/*": ["libs/core/src/modules/*"],
       "@nft/shared": ["libs/shared/src/index.ts"],
+      "@nft/user-api-core": ["apps/user-api/src/app/core/index.ts"],
+      "@nft/user-api-core/*": ["apps/user-api/src/app/core/*"],
       "@nft/utility": ["libs/utility/src/index.ts"]
     }
   },

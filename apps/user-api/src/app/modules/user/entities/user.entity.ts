@@ -23,4 +23,8 @@ export class User {
   @Column({ nullable: true })
   @Field(() => String, { description: 'User Role' })
   role: string;
+
+  @Column({ nullable: true })
+  @Field(() => String, { description: 'Password' })
+  password: string;
 }

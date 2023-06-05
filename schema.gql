@@ -17,6 +17,9 @@ type User {
 
   """User Role"""
   role: String!
+
+  """Password"""
+  password: String!
 }
 
 type Nft {

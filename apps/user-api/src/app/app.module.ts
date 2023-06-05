@@ -10,12 +10,14 @@ import { AppResolver } from './app.resolver';
 import { AppService } from './app.service';
 import { AppConfigModule } from '@nft/core-modules/app-config/app-config.module';
 import { AppConfigService } from '@nft/core-modules/app-config/app-config.provider';
+import { AuthModule } from './modules/auth/auth.module';
 import { UserModule } from './modules/user/user.module';
 import { NftModule } from './modules/nft/nft.module';
 import { TransactionModule } from './modules/transaction/transaction.module';
 
 @Module({
   imports: [
+    AuthModule,
     AppConfigModule,
     // GraphQLModule.forRoot<MercuriusDriverConfig>({
     GraphQLModule.forRoot<ApolloDriverConfig>({

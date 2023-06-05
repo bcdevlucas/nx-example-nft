@@ -1,4 +1,4 @@
-import * as jwkToPem from 'jwk-to-pem';
+import jwkToPem from 'jwk-to-pem';
 
 export const idKey = jwkToPem({
   // alg: 'RS256',
