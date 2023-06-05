@@ -7,13 +7,13 @@ services:
       dockerfile: Dockerfile.ganache
     ports:
       - "8545:8545"
-  eth:
-    image: schadokar/eth-server:1.0.0
-    build: ./
-    ports:
-      - "3001:3001"
-    depends_on:
-      - ganache
+#  eth:
+#    image: schadokar/eth-server:1.0.0
+#    build: ./
+#    ports:
+#      - "3001:3001"
+#    depends_on:
+#      - ganache
 
 #  react:
 #    image: schadokar/eth-react:1.0.0
@@ -39,7 +39,7 @@ services:
       DB_TYPE: 'mysql'
       DB_HOSTNAME: host.docker.internal
       DB_PORT: 3306
-      DB_DATABASE: 'nft_db'
+      DB_NAME: 'nft_db'
       DB_USERNAME: 'nft-db'
       DB_PASSWORD: 'makeTh!sSometh!ngSecure'
     volumes:
