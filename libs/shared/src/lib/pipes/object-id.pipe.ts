@@ -1,5 +1,5 @@
 import { PipeTransform, Injectable, ArgumentMetadata } from '@nestjs/common';
-import { ObjectId } from '@nft/core-lib';
+import { ObjectId } from '@nft/utility';
 
 @Injectable()
 export class ObjectIdPipe implements PipeTransform {

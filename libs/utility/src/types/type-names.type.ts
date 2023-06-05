@@ -6,6 +6,7 @@ export type TypeName<T> = T extends string
   ? 'boolean'
   : T extends undefined
   ? 'undefined'
+  // eslint-disable-next-line @typescript-eslint/ban-types
   : T extends Function
   ? 'function'
   : 'object';

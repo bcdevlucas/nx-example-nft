@@ -12,8 +12,8 @@ export interface AppConfigService extends ReturnType<typeof configuration> {}
  */
 @Injectable()
 export class AppConfigService {
-  private env: string;
-  constructor(private configService: ConfigService) {}
+  constructor(private configService: ConfigService) {
+  }
 
   get(key: keyof AppConfigService) {
     return this.configService.get('app.' + key);
@@ -24,6 +24,6 @@ export class AppConfigService {
   }
 
   get isDev() {
-    return this.env === 'development';
+    return this.configService.get('app.env') === 'development';
   }
 }

@@ -1,9 +1,7 @@
 import { applyDecorators } from '@nestjs/common';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsArray } from 'class-validator';
-// import { ObjectId } from '@nft/core-lib';
 import { ApiDecoratorOptions, apiDecoratorDefaults } from '../models';
-// const objectId = new ObjectId();
 
 const ApiArray = function ({
   required,
@@ -19,4 +17,3 @@ const ApiArray = function ({
 }; */
 
 export { ApiArray };
-// export { ApiArray, ObjectIdArray };

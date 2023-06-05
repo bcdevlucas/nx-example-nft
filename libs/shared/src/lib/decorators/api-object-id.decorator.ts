@@ -1,7 +1,7 @@
 import { applyDecorators } from '@nestjs/common';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsMongoId } from 'class-validator';
-import { ObjectId } from '@nft/core-lib';
+import { ObjectId } from '@nft/utility';
 import { apiDecoratorDefaults, ApiDecoratorOptions } from '../models';
 const example = new ObjectId().toHexString();
 

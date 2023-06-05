@@ -2,6 +2,182 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type User {
+  """User ID"""
+  id: String!
+
+  """First Name"""
+  firstName: String!
+
+  """Last Name"""
+  lastName: String!
+
+  """User Email"""
+  email: String!
+
+  """User Role"""
+  role: String!
+}
+
+type Nft {
+  """NFT ID"""
+  id: String!
+
+  """Name"""
+  name: String!
+
+  """Blockchain Link"""
+  blockchainLink: String!
+
+  """Description"""
+  description: String!
+
+  """Image URL"""
+  imageUrl: String!
+
+  """Owner"""
+  owner: String!
+
+  """Mint Date"""
+  mintDate: String!
+}
+
+type Transaction {
+  """Transaction ID"""
+  id: String!
+
+  """Timestamp"""
+  timestamp: String!
+
+  """NFT ID (UUID)"""
+  nftId: String!
+
+  """Transferred By (UUID)"""
+  transferredBy: String!
+
+  """Transferred To (UUID)"""
+  transferredTo: String!
+
+  """Transaction Status"""
+  status: String!
+}
+
 type Query {
   sayHello: String!
+  users: [User!]!
+  user(id: String!): User!
+  nft(id: String!): Nft!
+  transactions: [Transaction!]!
+  transaction(id: String!): Transaction!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: String!): User!
+  createNft(createNftInput: CreateNftInput!): Nft!
+  updateNft(updateNftInput: UpdateNftInput!): Nft!
+  removeNft(id: String!): Nft!
+  createTransaction(createTransactionInput: CreateTransactionInput!): Transaction!
+  updateTransaction(updateTransactionInput: UpdateTransactionInput!): Transaction!
+  removeTransaction(id: String!): Transaction!
+}
+
+input CreateUserInput {
+  """First Name"""
+  firstName: String!
+
+  """Last Name"""
+  lastName: String!
+
+  """User Email"""
+  email: String!
+
+  """User Role"""
+  role: String!
+}
+
+input UpdateUserInput {
+  """First Name"""
+  firstName: String
+
+  """Last Name"""
+  lastName: String
+
+  """User Email"""
+  email: String
+
+  """User Role"""
+  role: String
+  id: String!
+}
+
+input CreateNftInput {
+  """Name"""
+  name: String!
+
+  """Blockchain Link"""
+  blockchainLink: String!
+
+  """Description"""
+  description: String!
+
+  """Image URL"""
+  imageUrl: String!
+
+  """Owner"""
+  owner: String!
+
+  """Mint Date"""
+  mintDate: String!
+}
+
+input UpdateNftInput {
+  """Name"""
+  name: String
+
+  """Blockchain Link"""
+  blockchainLink: String
+
+  """Description"""
+  description: String
+
+  """Image URL"""
+  imageUrl: String
+
+  """Owner"""
+  owner: String
+
+  """Mint Date"""
+  mintDate: String
+  id: String!
+}
+
+input CreateTransactionInput {
+  """Transaction Date"""
+  timestamp: String!
+
+  """NFT ID (UUID)"""
+  nftId: String!
+
+  """Transferred By (UUID)"""
+  transferredBy: String!
+
+  """Transferred To (UUID)"""
+  transferredTo: String!
+}
+
+input UpdateTransactionInput {
+  """Transaction Date"""
+  timestamp: String
+
+  """NFT ID (UUID)"""
+  nftId: String
+
+  """Transferred By (UUID)"""
+  transferredBy: String
+
+  """Transferred To (UUID)"""
+  transferredTo: String
+  id: String!
 }

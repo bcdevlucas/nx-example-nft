@@ -16,13 +16,16 @@ const SessionStoreFactory = function ({ mongoUrl, dbName, collectionName, secret
 
   const [resave, saveUninitialized] = [false, false];
 
-  return () =>
-    session({
+  return () => {
+    return undefined;
+    /* return session({
       store,
       secret,
       resave,
       saveUninitialized,
-    });
+    }); */
+  }
+
 };
 
 export { SessionStoreFactory };

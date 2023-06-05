@@ -1,4 +1,4 @@
-import { ObjectId } from '@nft/core-lib';
+import { ObjectId } from '../types/id.type';
 
 const mongoReference = ObjectId.toString();
 

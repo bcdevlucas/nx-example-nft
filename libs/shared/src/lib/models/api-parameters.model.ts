@@ -1,4 +1,4 @@
-import { IdType } from '@nft/core-lib';
+import { IdType } from '@nft/utility';
 
 interface IObjectIdParameters {
   userId?: IdType;

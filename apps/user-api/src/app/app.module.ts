@@ -1,22 +1,28 @@
 import { Module } from '@nestjs/common';
 // import { MercuriusDriver, MercuriusDriverConfig } from '@nestjs/mercurius';
+import { PassportModule } from '@nestjs/passport';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
+// import { LoggerModule } from 'nestjs-pino';
 import { AppController } from './app.controller';
 import { AppResolver } from './app.resolver';
 import { AppService } from './app.service';
 import { AppConfigModule } from '@nft/core-modules/app-config/app-config.module';
 import { AppConfigService } from '@nft/core-modules/app-config/app-config.provider';
-// import { UsersModule } from './users/users.module';
+import { UserModule } from './modules/user/user.module';
+import { NftModule } from './modules/nft/nft.module';
+import { TransactionModule } from './modules/transaction/transaction.module';
 
 @Module({
   imports: [
-    // AppConfigModule,
+    AppConfigModule,
     // GraphQLModule.forRoot<MercuriusDriverConfig>({
     GraphQLModule.forRoot<ApolloDriverConfig>({
       // driver: MercuriusDriver,
       driver: ApolloDriver,
+      installSubscriptionHandlers: true,
+      playground: true,
       autoSchemaFile: './schema.gql'
     }),
     TypeOrmModule.forRootAsync({
@@ -35,8 +41,26 @@ import { AppConfigService } from '@nft/core-modules/app-config/app-config.provid
       }),
       inject: [AppConfigService],
     }),
+    /* LoggerModule.forRoot({
+      pinoHttp: {
+        prettyPrint: {
+          colorize: true,
+          levelFirst: true,
+          translateTime: 'UTC:mm/dd/yyyy, h:MM:ss TT Z',
+        },
+      },
+    }), */
+    PassportModule.register({
+      defaultStrategy: 'jwt',
+    }),
+    UserModule,
+    NftModule,
+    TransactionModule,
   ],
   controllers: [AppController],
   providers: [AppService, AppResolver],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private appConfigService: AppConfigService) {
+  }
+}

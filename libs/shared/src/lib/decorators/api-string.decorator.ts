@@ -4,7 +4,8 @@ import { IsEmail, IsString, IsUrl, Length } from 'class-validator';
 import { apiDecoratorDefaults, ApiDecoratorType } from '../models';
 import * as R from 'remeda';
 
-const baseStringValidators = (min, max) => [IsString(), Length(min, max)];
+const baseStringValidators = (min: number, max: number) => [IsString(), Length(min, max)];
+
 const lengthFn = function (minLength: number, maxLength: number) {
   return { maxLength, minLength };
 };

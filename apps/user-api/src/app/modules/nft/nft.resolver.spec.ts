@@ -1,18 +1,19 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { NftResolver } from './nft.resolver';
 import { NftService } from './nft.service';
 
-describe('NftService', () => {
-  let service: NftService;
+describe('NftResolver', () => {
+  let resolver: NftResolver;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [NftService],
+      providers: [NftResolver, NftService],
     }).compile();
 
-    service = module.get<NftService>(NftService);
+    resolver = module.get<NftResolver>(NftResolver);
   });
 
   it('should be defined', () => {
-    expect(service).toBeDefined();
+    expect(resolver).toBeDefined();
   });
 });

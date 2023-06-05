@@ -1,0 +1,47 @@
+query {
+  users {
+    id,
+    firstName,
+    lastName,
+    email,
+    role
+  }
+}
+
+mutation CreateUser($input: CreateUserInput!) {
+  createUser(createUserInput: $input) {
+    id
+  }
+}
+
+{
+  "input": {
+  	"firstName": "Lucas",
+    "lastName": "Lopatka",
+    "email": "lucas@bluecollardev.com",
+    "role": "admin"
+  }
+}
+
+mutation UpdateUser($input: UpdateUserInput!) {
+  updateUser(updateUserInput: $input) {
+    id
+  }
+}
+
+{
+  "input": {
+    "id": "46196615-fa20-47a0-a98e-8216a572e92e",
+  	"role": "default"
+  }
+}
+
+mutation RemoveUser($id: String!) {
+  removeUser(id: $id) {
+    id
+  }
+}
+
+{
+  "id": "46196615-fa20-47a0-a98e-8216a572e92e"
+}

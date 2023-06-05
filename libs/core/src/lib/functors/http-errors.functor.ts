@@ -1,4 +1,5 @@
 import { ConflictException, HttpException, HttpStatus } from '@nestjs/common';
+// import { observableToBeFn } from 'rxjs/dist/types/internal/testing/TestScheduler';
 
 /**
  * Return a new exception when the request is a bad request.
@@ -17,8 +18,8 @@ function badRequestResponse(error: string) {
  * @param {{ args?: any }} [opts]
  * @return Http Exception with status of 404
  */
-function notFoundResponse(entity: string, opts?: { args?: any }) {
-  const { args = null } = opts;
+function notFoundResponse(entity: string, opts?: { args: any[] | any }) {
+  const { args = null } = opts || { args: null };
   return new HttpException(
     { status: HttpStatus.NOT_FOUND, error: `${entity} was not found`, ...(args ?? args) },
     HttpStatus.NOT_FOUND
